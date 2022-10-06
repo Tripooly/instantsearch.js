@@ -37,7 +37,9 @@
     "test:functional:dev:debug-server": "PORT=9090 babel-node scripts/dev-functional-tests-debug-server",
     "argos": "argos upload functional-tests/screenshots --token $ARGOS_TOKEN || true",
     "serve": "./scripts/serve.sh",
-    "fix:prettier": "eslint --fix -c .eslintrc.js ."
+    "fix:prettier": "eslint --fix -c .eslintrc.js .",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "renovate": {
     "extends": [
@@ -130,17 +132,18 @@
   },
   "dependencies": {
     "algoliasearch": "3.27.0",
-    "algoliasearch-helper": "2.26.0",
+    "algoliasearch-helper": "3.6.2",
     "classnames": "2.2.5",
     "events": "1.1.0",
     "hogan.js": "3.0.2",
-    "lodash": "4.17.5",
+    "lodash": "4.17.21",
     "preact": "8.2.7",
     "preact-compat": "3.18.0",
     "preact-rheostat": "2.1.1",
-    "prop-types": "15.5.10",
+    "prop-types": "15.6.2",
     "qs": "6.5.1",
-    "to-factory": "1.0.0"
+    "to-factory": "1.0.0",
+    "@snyk/protect": "latest"
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -155,5 +158,6 @@
       "path": "./dist/instantsearch.min.js",
       "maxSize": "110 kB"
     }
-  ]
+  ],
+  "snyk": true
 }
